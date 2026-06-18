@@ -4,66 +4,83 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TechPicksHQ — Beste Tech Accessories</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Segoe UI', sans-serif; background: #00061a; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; }
-  .avatar { width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6, #6366f1); display: flex; align-items: center; justify-content: center; font-size: 40px; margin-bottom: 16px; box-shadow: 0 0 30px rgba(59,130,246,0.4); }
-  h1 { color: #fff; font-size: 22px; font-weight: 700; margin-bottom: 6px; }
-  .bio { color: #93c5fd; font-size: 14px; margin-bottom: 8px; }
-  .updated { color: #666; font-size: 12px; margin-bottom: 32px; }
-  .socials { display: flex; gap: 12px; margin-bottom: 36px; flex-wrap: wrap; justify-content: center; }
-  .social-btn { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: #fff; padding: 8px 16px; border-radius: 20px; font-size: 13px; text-decoration: none; transition: all 0.2s; }
-  .social-btn:hover { background: rgba(59,130,246,0.3); border-color: #3b82f6; }
-  .section-title { color: #3b82f6; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; align-self: flex-start; max-width: 480px; width: 100%; }
-  .card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 18px 20px; margin-bottom: 12px; width: 100%; max-width: 480px; display: flex; align-items: center; gap: 16px; text-decoration: none; transition: all 0.25s; }
-  .card:hover { background: rgba(59,130,246,0.15); border-color: rgba(59,130,246,0.4); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(59,130,246,0.15); }
-  .card-emoji { font-size: 28px; min-width: 44px; text-align: center; }
-  .card-info { flex: 1; }
-  .card-title { color: #fff; font-size: 15px; font-weight: 600; margin-bottom: 3px; }
-  .card-desc { color: #999; font-size: 13px; }
-  .card-badge { background: #3b82f6; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 10px; white-space: nowrap; }
-  .card-badge.sale { background: #e53e3e; }
-  .footer { color: #444; font-size: 12px; margin-top: 40px; text-align: center; }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 48px 20px 60px; background: #00061a; position: relative; overflow-x: hidden; }
+  .bg { position: fixed; inset: 0; background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1400&q=80') center/cover no-repeat; filter: brightness(0.15) saturate(1.4) hue-rotate(10deg); z-index: 0; transform: scale(1.05); }
+  .grain { position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); z-index: 1; pointer-events: none; }
+  .content { position: relative; z-index: 2; width: 100%; max-width: 480px; display: flex; flex-direction: column; align-items: center; }
+  .avatar-wrap { width: 96px; height: 96px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6, #6366f1, #8b5cf6); display: flex; align-items: center; justify-content: center; font-size: 42px; box-shadow: 0 0 0 3px rgba(59,130,246,0.3), 0 0 40px rgba(59,130,246,0.25); margin-bottom: 20px; animation: float 4s ease-in-out infinite; }
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  h1 { font-family: 'Playfair Display', serif; font-size: 28px; background: linear-gradient(135deg, #3b82f6, #a5b4fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; animation: fadeUp 0.6s ease both; }
+  .bio { color: rgba(255,255,255,0.6); font-size: 14px; font-weight: 300; letter-spacing: 0.3px; margin-bottom: 6px; animation: fadeUp 0.7s ease both; }
+  .updated { display: inline-flex; align-items: center; gap: 6px; background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.25); color: #60a5fa; font-size: 11px; font-weight: 500; letter-spacing: 0.5px; padding: 5px 12px; border-radius: 20px; margin-bottom: 28px; animation: fadeUp 0.8s ease both; }
+  .socials { display: flex; gap: 8px; margin-bottom: 36px; flex-wrap: wrap; justify-content: center; animation: fadeUp 0.9s ease both; }
+  .social-btn { background: rgba(255,255,255,0.07); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); padding: 8px 16px; border-radius: 24px; font-size: 12px; font-weight: 500; text-decoration: none; transition: all 0.25s; }
+  .social-btn:hover { background: rgba(59,130,246,0.2); border-color: rgba(59,130,246,0.5); color: #fff; transform: translateY(-1px); }
+  .section-label { width: 100%; display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .section-label span { color: rgba(255,255,255,0.3); font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; white-space: nowrap; }
+  .section-label::before, .section-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
+  .card { width: 100%; background: rgba(255,255,255,0.06); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 16px; margin-bottom: 12px; display: flex; align-items: center; gap: 14px; text-decoration: none; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .card:hover { background: rgba(59,130,246,0.12); border-color: rgba(59,130,246,0.35); transform: translateY(-3px) scale(1.01); box-shadow: 0 12px 40px rgba(59,130,246,0.15); }
+  .card-img { width: 60px; height: 60px; border-radius: 14px; object-fit: cover; flex-shrink: 0; }
+  .card-info { flex: 1; min-width: 0; }
+  .card-title { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card-desc { color: rgba(255,255,255,0.45); font-size: 12px; font-weight: 300; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card-stars { display: flex; gap: 1px; margin-top: 4px; }
+  .card-stars span { color: #facc15; font-size: 10px; }
+  .card-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
+  .badge { font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 10px; letter-spacing: 0.3px; text-transform: uppercase; }
+  .badge-prime { background: linear-gradient(135deg, #3b82f6, #6366f1); color: #fff; }
+  .badge-sale { background: linear-gradient(135deg, #dc2626, #b91c1c); color: #fff; }
+  .badge-new { background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: #fff; }
+  .arrow { color: rgba(255,255,255,0.25); font-size: 16px; }
+  .footer { color: rgba(255,255,255,0.2); font-size: 11px; margin-top: 36px; text-align: center; line-height: 1.6; }
 </style>
 </head>
 <body>
-  <div class="avatar">⚡</div>
-  <h1>TechPicksHQ</h1>
-  <p class="bio">De beste tech accessories — getest & eerlijk beoordeeld</p>
-  <p class="updated">🔄 Wekelijks bijgewerkt</p>
-  <div class="socials">
-    <a href="https://tiktok.com/@techpickshq" class="social-btn">TikTok</a>
-    <a href="https://instagram.com/techpickshq" class="social-btn">Instagram</a>
-    <a href="https://youtube.com/@techpickshq" class="social-btn">YouTube</a>
-    <a href="https://pinterest.com/techpickshq" class="social-btn">Pinterest</a>
-    <a href="https://facebook.com/techpickshq" class="social-btn">Facebook</a>
+  <div class="bg"></div><div class="grain"></div>
+  <div class="content">
+    <div class="avatar-wrap">⚡</div>
+    <h1>TechPicksHQ</h1>
+    <p class="bio">De beste tech accessories — eerlijk getest & beoordeeld</p>
+    <div class="updated">🔄 Wekelijks bijgewerkt</div>
+    <div class="socials">
+      <a href="https://tiktok.com/@techpickshq" class="social-btn">TikTok</a>
+      <a href="https://instagram.com/techpickshq" class="social-btn">Instagram</a>
+      <a href="https://youtube.com/@techpickshq" class="social-btn">YouTube</a>
+      <a href="https://pinterest.com/techpickshq" class="social-btn">Pinterest</a>
+      <a href="https://facebook.com/techpickshq" class="social-btn">Facebook</a>
+    </div>
+    <div class="section-label"><span>Deze week uitgelicht</span></div>
+    <a href="AFFILIATE_LINK_1" class="card" target="_blank">
+      <img class="card-img" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=120&q=80" alt="product">
+      <div class="card-info"><div class="card-title">Product 1 — Komt binnenkort</div><div class="card-desc">Wekelijks bijgewerkt met topproducten</div><div class="card-stars"><span>★★★★★</span></div></div>
+      <div class="card-right"><span class="badge badge-prime">Amazon</span><span class="arrow">›</span></div>
+    </a>
+    <a href="AFFILIATE_LINK_2" class="card" target="_blank">
+      <img class="card-img" src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=120&q=80" alt="product">
+      <div class="card-info"><div class="card-title">Product 2 — Komt binnenkort</div><div class="card-desc">Wekelijks bijgewerkt met topproducten</div><div class="card-stars"><span>★★★★★</span></div></div>
+      <div class="card-right"><span class="badge badge-sale">Sale</span><span class="arrow">›</span></div>
+    </a>
+    <a href="AFFILIATE_LINK_3" class="card" target="_blank">
+      <img class="card-img" src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=120&q=80" alt="product">
+      <div class="card-info"><div class="card-title">Product 3 — Komt binnenkort</div><div class="card-desc">Wekelijks bijgewerkt met topproducten</div><div class="card-stars"><span>★★★★☆</span></div></div>
+      <div class="card-right"><span class="badge badge-prime">Amazon</span><span class="arrow">›</span></div>
+    </a>
+    <a href="AFFILIATE_LINK_4" class="card" target="_blank">
+      <img class="card-img" src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=120&q=80" alt="product">
+      <div class="card-info"><div class="card-title">Product 4 — Komt binnenkort</div><div class="card-desc">Wekelijks bijgewerkt met topproducten</div><div class="card-stars"><span>★★★★★</span></div></div>
+      <div class="card-right"><span class="badge badge-new">Nieuw</span><span class="arrow">›</span></div>
+    </a>
+    <a href="AFFILIATE_LINK_5" class="card" target="_blank">
+      <img class="card-img" src="https://images.unsplash.com/photo-1601524909162-ae8725290836?w=120&q=80" alt="product">
+      <div class="card-info"><div class="card-title">Product 5 — Komt binnenkort</div><div class="card-desc">Wekelijks bijgewerkt met topproducten</div><div class="card-stars"><span>★★★★★</span></div></div>
+      <div class="card-right"><span class="badge badge-prime">Amazon</span><span class="arrow">›</span></div>
+    </a>
+    <p class="footer">Als Amazon Associate verdien ik commissie op aankopen via deze links.<br>Dit beïnvloedt de prijs voor jou niet.</p>
   </div>
-  <p class="section-title">🔥 Deze week uitgelicht</p>
-  <a href="AFFILIATE_LINK_1" class="card" target="_blank">
-    <div class="card-emoji">🎧</div>
-    <div class="card-info"><div class="card-title">Product 1 — Komt binnenkort</div><div class="card-desc">Wekelijks bijgewerkt met topproducten</div></div>
-    <span class="card-badge">Amazon</span>
-  </a>
-  <a href="AFFILIATE_LINK_2" class="card" target="_blank">
-    <div class="card-emoji">⌨️</div>
-    <div class="card-info"><div class="card-title">Product 2 — Komt binnenkort</div><div class="card-desc">Wekelijks bijgewerkt met topproducten</div></div>
-    <span class="card-badge">Amazon</span>
-  </a>
-  <a href="AFFILIATE_LINK_3" class="card" target="_blank">
-    <div class="card-emoji">🖱️</div>
-    <div class="card-info"><div class="card-title">Product 3 — Komt binnenkort</div><div class="card-desc">Wekelijks bijgewerkt met topproducten</div></div>
-    <span class="card-badge sale">SALE</span>
-  </a>
-  <a href="AFFILIATE_LINK_4" class="card" target="_blank">
-    <div class="card-emoji">🔋</div>
-    <div class="card-info"><div class="card-title">Product 4 — Komt binnenkort</div><div class="card-desc">Wekelijks bijgewerkt met topproducten</div></div>
-    <span class="card-badge">Amazon</span>
-  </a>
-  <a href="AFFILIATE_LINK_5" class="card" target="_blank">
-    <div class="card-emoji">📱</div>
-    <div class="card-info"><div class="card-title">Product 5 — Komt binnenkort</div><div class="card-desc">Wekelijks bijgewerkt met topproducten</div></div>
-    <span class="card-badge">Amazon</span>
-  </a>
-  <p class="footer">Als Amazon Associate verdien ik commissie op aankopen via deze links.</p>
 </body>
 </html>
